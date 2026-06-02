@@ -1,11 +1,11 @@
 import bpy
 bl_info={
-    "name":"",
+    "name":"レベルエディタ",
     "author":"Taro Kamata",
     "version":(1,0),
     "blender":(3,3,1),
     "location":"",
-    "descripton":"",
+    "descripton":"レベルエディタ",
     "wiki_url":"",
     "tracker_utl":"",
     "category":"Object"
