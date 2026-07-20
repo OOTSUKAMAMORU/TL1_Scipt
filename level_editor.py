@@ -10,22 +10,59 @@ bl_info={
     "tracker_utl":"",
     "category":"Object"
 }
-
-def draw_menu_manual(self,context):
-    self.layout.operator("wm.url_open_preset",text="Manual",icon="HELP")
-
+   
 class TOPBAR_MT_my_menu(bpy.types.Menu):
     bl_idname="TOPBAR_MT_my_menu"
     bl_label="MyMenu"
     bl_description="拡張メニュー　by"+bl_info["author"]
 
     def draw(self,context):
+        self.layout.operator(MYADDON_OT_stretch_vertex.bl_idname,text=MYADDON_OT_stretch_vertex.bl_label)
         self.layout.operator("wm.url_open_preset",text="Manual",icon='HELP')
 
     def submenu(self,context):
-        self.layout.menu(TOPBAR_MT_my_menu.bl_idname) 
+        self.layout.menu(TOPBAR_MT_my_menu.bl_idname)
+
+class MYADDON_OT_stretch_vertex(bpy.types.Operator):
+    bl_idname="myaddon.stretch_vertex"
+    bl_label="頂点を伸ばす"
+    bl_description="頂点を引っ張って伸ばします"
+    bl_options={'REGISTER','UNDO'}
+
+    #メニューを実行したときに呼ばれるコールバック関数
+    def execute(self,context):
+        bpy.data.objects['Cube'].data.vertices[0].co.x+=1.0
+        print("頂点を伸ばしました")
+        
+        #オペレーターの命令終了を通知
+        return {'FINISHED'}
+    
+#オペレーター　ICO球生成     
+class MYADOON_OT_create_ico_sphere(bpy.types.Operator):
+    bl_idname="myaddon.create_ico_sphere_object"
+    bl_label="ICO球を生成"
+    bl_description={'ICO球を生成します'}
+    bl_options={'REGISTER','UNDO'}
+
+    #メニューを実行したときに呼ばれる関数
+    def execute(self,context):
+        bpy.ops.mesh.primitive_ico_sphere_add()
+        print("ICO球を生成しました")
+        return {'FINISHED'}
+
+class MYADOON_OT_stretch(bpy.types.Operator):
+    bl_idname="mydoon.mydoon_ot_stretchvewrtex"
+    bl_label="頂点を伸ばす"
+    bl_description="頂点を引っ張って伸ばします"
+    bl_options={'REGISTER','UNDO'}
+
+    def execute(self,context):
+       bpy.data.objects['Cube'].data.vertices[0].co.x+=1.0
+       print("頂点を伸ばしました")
+       return {'FINISHED'}
 
 classes = (
+    MYADDON_OT_stretch_vertex,
     TOPBAR_MT_my_menu,
 )
 
@@ -42,3 +79,4 @@ def unregister():
         bpy.utils.unregister_class(cls) 
 if __name__ == "__main__":
     register()
+   
