@@ -38,7 +38,7 @@ class MYADDON_OT_stretch_vertex(bpy.types.Operator):
         return {'FINISHED'}
     
 #オペレーター　ICO球生成     
-class MYADOON_OT_create_ico_sphere(bpy.types.Operator):
+class MYADDON_OT_create_ico_sphere(bpy.types.Operator):
     bl_idname="myaddon.create_ico_sphere_object"
     bl_label="ICO球を生成"
     bl_description={'ICO球を生成します'}
@@ -50,8 +50,8 @@ class MYADOON_OT_create_ico_sphere(bpy.types.Operator):
         print("ICO球を生成しました")
         return {'FINISHED'}
 
-class MYADOON_OT_stretch(bpy.types.Operator):
-    bl_idname="mydoon.mydoon_ot_stretchvewrtex"
+class MYADDON_OT_stretch(bpy.types.Operator):
+    bl_idname="mydoon.myddon_ot_stretchvewrtex"
     bl_label="頂点を伸ばす"
     bl_description="頂点を引っ張って伸ばします"
     bl_options={'REGISTER','UNDO'}
