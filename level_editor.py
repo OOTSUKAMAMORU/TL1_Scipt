@@ -226,7 +226,7 @@ def register():
     for cls in classes:
         bpy.utils.register_class(cls)
 
-    DrawCollider.habdle=bpy.types.SpaceView3D.draw_handler_add(DrawCollider.draw_collider,(),"WINDOW","POST_VIEW")
+    DrawCollider.handle=bpy.types.SpaceView3D.draw_handler_add(DrawCollider.draw_collider,(),"WINDOW","POST_VIEW")
     bpy.types.TOPBAR_MT_editor_menus.append(TOPBAR_MT_my_menu.submenu)
 
     print("レベルエディタが有効化されました")
